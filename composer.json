@@ -15,8 +15,14 @@
 	],
 	"require": {
 		"php": ">=5.3.0",
-		"sandeepshetty/wcurl": "dev-master"
+		"sadilegend/wcurl": "^1.0"
 	},
+	"repositories": [
+        {
+            "type": "vcs",
+            "url": "https://github.com/sadilegend/wcurl"
+        }
+    ],
 	"autoload": {
 		"files": ["../wcurl/wcurl.php", "client.php"]
 	}
