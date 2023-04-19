@@ -56,7 +56,7 @@
 
 	function permission_url($shop, $api_key, $scope=array(), $redirect_uri='')
 	{
-		$scope = empty($scope) ? '' : '&scope='.implode(',', $scope);
+		$scope = empty($scope) ? '' : '&scope='.$scope;
 		$redirect_uri = empty($redirect_uri) ? '' : '&redirect_uri='.urlencode($redirect_uri);
 		return "https://$shop/admin/oauth/authorize?client_id=$api_key$scope$redirect_uri";
 	}
