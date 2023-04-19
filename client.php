@@ -10,8 +10,8 @@
 
 
 	function is_valid_request($query_params, $shared_secret)
-	{
-		/* 		$seconds_in_a_day = 24 * 60 * 60;
+	{  
+/* 		$seconds_in_a_day = 24 * 60 * 60;
 		$older_than_a_day = $query_params['timestamp'] < (time() - $seconds_in_a_day);
 		if ($older_than_a_day) return false;
 
@@ -50,11 +50,11 @@
 		 
 		 $digest = hash_hmac( 'sha256' , $params, $key) ; 
 
-		 return ($hmac === $digest);
+		 return ($hmac === $digest);		
 	}
 
 
-	function permission_url($shop, $api_key, $scope=array(), $redirect_uri='')
+	function permission_url($shop, $api_key, $scope, $redirect_uri='')
 	{
 		$scope = empty($scope) ? '' : '&scope='.$scope;
 		$redirect_uri = empty($redirect_uri) ? '' : '&redirect_uri='.urlencode($redirect_uri);
@@ -77,7 +77,7 @@
 		{
 			$url = $baseurl.ltrim($path, '/');
 			$query = in_array($method, array('GET','DELETE')) ? $params : array();
-			$payload = in_array($method, array('POST','PUT')) ? stripslashes(json_encode($params)) : array();
+			$payload = in_array($method, array('POST','PUT')) ? stripslashes(json_encode($params,JSON_UNESCAPED_UNICODE)) : array();
 
 			$request_headers = array();
 			array_push($request_headers, "X-Shopify-Access-Token: $shops_token");
@@ -99,9 +99,9 @@
 			}
 
 			$response = json_decode($response, true);
-
-			if (isset($response['errors']) or ($response_headers['http_status_code'] >= 400))
-					throw new ApiException(compact('method', 'path', 'params', 'response_headers', 'response', 'shops_myshopify_domain', 'shops_token'));
+            // if (isset($response['errors']) or ($response_headers['http_status_code'] >= 400))
+                    
+			// 		echo "<div class='errorText'>SORRY, OUR DATA SERVER JUST HAD SOME ISSUES SO WE LOST YOUR STORE ACCESS TOKEN. PLEASE UNINSTALL AND REINSTALL OUR APP TO MAKE IT WORK CORRECT, ALL YOUR OLD SETUP DATA WILL BE OK. SO SORRY FOR THIS INCONVENIENCE!</div>";
 
 			return (is_array($response) and !empty($response)) ? array_shift($response) : $response;
 		}
