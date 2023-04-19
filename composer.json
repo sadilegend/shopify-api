@@ -1,15 +1,15 @@
 {
-	"name": "sandeepshetty/shopify_api",
+	"name": "sadilegend/shopify-api",
 	"type": "library",
 	"description": "Simple Shopify API client in PHP",
 	"keywords": ["shopify","api"],
-	"homepage": "https://github.com/sandeepshetty/shopify_api",
+	"homepage": "https://github.com/sadilegend/shopify-api",
 	"license": "MIT",
 	"authors": [
 		{
-			"name": "Sandeep Shetty",
-			"email": "sandeep.shetty@gmail.com",
-			"homepage": "http://sandeep.shetty.in",
+			"name": "Nguyen Hung",
+			"email": "hungnn@omegatheme.com",
+			"homepage": "",
 			"role": "Developer"
 		}
 	],
